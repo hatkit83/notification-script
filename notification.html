@@ -1,0 +1,158 @@
+	<!DOCTYPE html><html><head>
+		<base href="">
+		<meta charset="utf-8">
+		<meta name="google" value="notranslate">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<link href="style.css" rel="stylesheet" type="text/css">
+	</head>
+	<body class="en ltr">
+
+		<a href="http://google.com" class="motivating-element-notij-que motivating-element_right-bottom" id="motivating-element-notij-que">
+	    <div class="motivating-element-notij motivating-element-theme_error motivating-element-hidden">
+	        <div class="motivating-element-notij-msg">3 registration spots available!</div>
+	    </div>
+	    <div class="motivating-element-notij motivating-element-theme_info motivating-element-visible">
+	        <div class="motivating-element-notij-msg">Jane Browns has claimed iPhone X!</div>
+	    </div>
+	    <div class="motivating-element-notij motivating-element-theme_error motivating-element-visible">
+	        <div class="motivating-element-notij-msg">Some reward items are running out!</div>
+	    </div>
+        </a>
+
+		<style type="text/css">
+		.motivating-element-notij-que * {
+			z-index: 10001;
+		}
+		.motivating-element-notij-que {
+			display: block;
+			position: fixed;
+			margin: 0;
+			padding: 0;
+			width: 100%;
+			font-size: 1em;
+			font-weight: normal;
+			background-color: transparent;
+			border: none;
+			outline: none;
+			text-decoration: none;
+			z-index: 10001;
+		}
+		@media screen and (orientation: portrait) {
+			.motivating-element-notij-que {
+				max-width: 310px;
+			}
+		}
+		@media screen and (orientation: landscape) {
+			.motivating-element-notij-que {
+				max-width: 400px;
+			}
+		}
+		.motivating-element-notij-que.motivating-element_right-top, .motivating-element-notij-que.motivating-element_top-right {
+			right: 1%;
+			top: 1%;
+		}
+		.motivating-element-notij-que.motivating-element_right-bottom, .motivating-element-notij-que.motivating-element_bottom-right {
+			right: 1%;
+			bottom: 1%;
+		}
+		.motivating-element-notij-que.motivating-element_left-bottom, .motivating-element-notij-que.motivating-element_bottom-left {
+			left: 1%;
+			bottom: 1%;
+		}
+		.motivating-element-notij-que.motivating-element_left-top, .motivating-element-notij-que.motivating-element_top-left {
+			left: 1%;
+			top: 1%;
+		}
+		.motivating-element-notij {
+			font-size: 1em;
+			color: #555;
+			padding: 0.5em;
+			position: relative;
+			margin-bottom: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px
+		}
+		.motivating-element-notij-msg {
+			padding-right: 20px;
+			font-size: 1em;
+		}
+		.motivating-element-theme_default {
+			background: #414141;
+			color: #FFF;
+		}
+		.motivating-element-theme_error {
+			background: #F33;
+			color: #FFF;
+		}
+		.motivating-element-theme_info {
+			background: #09F;
+			color: #FFF;
+		}
+		.motivating-element-hidden {
+			-webkit-transition: opacity 0.5s;
+			transition: opacity 0.5s;
+			opacity: 0;
+			display: none;
+		}
+
+		.motivating-element-visible {
+			-webkit-transition: opacity 0.5s;
+			transition: opacity 0.5s;
+			opacity: 1;
+		}
+	</style>
+
+	<script type="text/javascript">
+		function addClass (el, className) {
+			if (el.classList) { el.classList.add(className); }
+			else { el.className += ' ' + className; }
+		}
+		function removeClass(el, className) {
+			if (el.classList) { el.classList.remove(className); }
+			else { el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' '); }
+		}
+		function alerts(text, autoclose, theme){
+			var elems = document.createElement('div');
+			elems.innerHTML = text;
+			addClass(elems, "motivating-element-notij");
+			addClass(elems, "motivating-element-hidden");
+			if(theme=="red") { addClass(elems, "motivating-element-theme_error"); }
+			if(theme=="blue") { addClass(elems, "motivating-element-theme_info"); }
+			var d = document.createElement('div');
+			addClass(d, "motivating-element-notij-msg");
+			d.innerHTML = elems.innerHTML;
+			elems.innerHTML = "";
+			elems.appendChild(d);
+			document.getElementById("motivating-element-notij-que").appendChild(elems);
+			setTimeout(function(){
+				removeClass(elems, "motivating-element-hidden");
+				addClass(elems, "motivating-element-visible");
+			}, autoclose / 25);
+			setTimeout(function(){
+				removeClass(elems, "motivating-element-visible");
+				addClass(elems, "motivating-element-hidden");
+			}, autoclose);
+		}
+
+		setTimeout(function() {
+			alerts("3 registration spots available!", 5000, "red");
+		}, 3000);
+		setTimeout(function() {
+			alerts("Jane Browns has claimed iPhone X!", 10000, "blue");
+		}, 10000);
+		setTimeout(function() {
+			alerts("Some reward items are running out!", 5000, "red");
+		}, 15000);
+		setTimeout(function() {
+			alerts("Mike Johnson has claimed iPhone X!", 10000, "blue");
+		}, 22000);
+		setTimeout(function() {
+			alerts("Some reward items are running out!", 10000, "red");
+		}, 27000);
+	</script>
+
+</body>
+
+</html>
